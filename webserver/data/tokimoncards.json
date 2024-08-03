@@ -1,0 +1,42 @@
+[
+  {
+    "tid": 4,
+    "name": "Its Joever",
+    "type": "Water",
+    "rarity": 10,
+    "pictureUrl": "https://ih1.redbubble.net/image.4008784806.7746/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
+    "hp": 3
+  },
+  {
+    "tid": 6,
+    "name": "Joe Budden",
+    "type": "Ground",
+    "rarity": 4,
+    "pictureUrl": "https://ih1.redbubble.net/image.4008784806.7746/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
+    "hp": 25
+  },
+  {
+    "tid": 7,
+    "name": "Sleepy Joe",
+    "type": "Water",
+    "rarity": 10,
+    "pictureUrl": "https://ih1.redbubble.net/image.4008784806.7746/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
+    "hp": 3
+  },
+  {
+    "tid": 9,
+    "name": "Joe Biden",
+    "type": "Ground",
+    "rarity": 4,
+    "pictureUrl": "https://ih1.redbubble.net/image.4008784806.7746/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
+    "hp": 25
+  },
+  {
+    "tid": 10,
+    "name": "Joe Shiesty",
+    "type": "Water",
+    "rarity": 10,
+    "pictureUrl": "https://ih1.redbubble.net/image.4008784806.7746/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
+    "hp": 3
+  }
+]
