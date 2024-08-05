@@ -9,15 +9,6 @@ public class Tokimon {
     private String pictureUrl;
     private int hp;
 
-    public Tokimon() {
-        this.tid = 0;
-        this.name = "";
-        this.type = "";
-        this.rarity = 0;
-        this.pictureUrl = "";
-        this.hp = 0;
-    }
-
     public Tokimon(String name, String type, int rarity, String pictureUrl, int hp) {
         this.name = name;
         this.type = type;

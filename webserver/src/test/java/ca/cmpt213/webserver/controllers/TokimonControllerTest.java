@@ -2,6 +2,7 @@ package ca.cmpt213.webserver.controllers;
 
 import ca.cmpt213.webserver.models.Tokimon;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,6 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -47,6 +49,14 @@ class TokimonControllerTest {
     @AfterEach
     void tearDown() {
         controller = null;
+    }
+
+    @AfterAll
+    static void tearDownAll() {
+        File toDelete = new File("data/tokimontest.json");
+        if (toDelete.exists()) {
+            toDelete.delete();
+        }
     }
 
     @Test
@@ -92,7 +102,7 @@ class TokimonControllerTest {
 
         this.mockMvc.perform(get("/api/tokimon/{tid}", "0"))
                 .andDo(print())
-                .andExpect(status().isOk())
+                .andExpect(status().isNotFound())
                 .andExpect(content().string(""));
 
     }
@@ -190,7 +200,7 @@ class TokimonControllerTest {
         this.mockMvc.perform((put("/api/tokimon/edit/{tid}", 1))
                 .content(tokimon2Json)
                 .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
+                .andExpect(status().isNotFound())
                 .andExpect(content().string(""));
 
         this.mockMvc.perform(get("/api/tokimon/{tid}", "0"))
@@ -233,12 +243,12 @@ class TokimonControllerTest {
 
         this.mockMvc.perform(get("/api/tokimon/{tid}", "0"))
                 .andDo(print())
-                .andExpect(status().isOk())
+                .andExpect(status().isNotFound())
                 .andExpect(content().string(""));
 
         this.mockMvc.perform(get("/api/tokimon/{tid}", "1"))
                 .andDo(print())
-                .andExpect(status().isOk())
+                .andExpect(status().isNotFound())
                 .andExpect(content().string(""));
 
     }
@@ -248,7 +258,7 @@ class TokimonControllerTest {
 
         this.mockMvc.perform(delete("/api/tokimon/{tid}", "0"))
                 .andDo(print())
-                .andExpect(status().isOk())
+                .andExpect(status().isNotFound())
                 .andExpect(content().string(""));
 
     }

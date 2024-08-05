@@ -31,20 +31,24 @@ public class TokimonController {
     }
 
     @GetMapping("/api/tokimon/all")
-    public List<Tokimon> getTokimonList() {
+    public List<Tokimon> getTokimonList(HttpServletResponse response) {
+        response.setStatus(HttpServletResponse.SC_OK);
         return getTokimonListFromFile();
     }
 
     @GetMapping("/api/tokimon/{tid}")
-    public Tokimon getTokimon(@PathVariable long tid) {
+    public Tokimon getTokimon(@PathVariable long tid, HttpServletResponse response) {
 
         List<Tokimon> tokimonList = getTokimonListFromFile();
 
         for (Tokimon tokimon : tokimonList) {
             if (tokimon.getTid() == tid) {
+                response.setStatus(HttpServletResponse.SC_OK);
                 return tokimon;
             }
         }
+
+        response.setStatus(HttpServletResponse.SC_NOT_FOUND);
         System.out.println("not found");
         return null;
     }
@@ -64,7 +68,7 @@ public class TokimonController {
     }
 
     @PutMapping("/api/tokimon/edit/{tid}")
-    public Tokimon editTokimon(@PathVariable long tid, @RequestBody Tokimon newTokimon) {
+    public Tokimon editTokimon(@PathVariable long tid, @RequestBody Tokimon newTokimon, HttpServletResponse response) {
 
         List<Tokimon> tokimonList = getTokimonListFromFile();
 
@@ -79,10 +83,13 @@ public class TokimonController {
 
                 writeToJson(tokimonList);
 
+                response.setStatus(HttpServletResponse.SC_OK);
+
                 return newTokimon;
             }
         }
 
+        response.setStatus(HttpServletResponse.SC_NOT_FOUND);
         System.out.println("not found");
         return null;
     }
@@ -102,6 +109,7 @@ public class TokimonController {
             }
         }
 
+        response.setStatus(HttpServletResponse.SC_NOT_FOUND);
         System.out.println("not found");
         return null;
 
@@ -116,6 +124,7 @@ public class TokimonController {
             new FileWriter(filename, false).close();
             response.setStatus(HttpServletResponse.SC_NO_CONTENT);
         } catch (IOException e) {
+            response.setStatus(HttpServletResponse.SC_ACCEPTED);
             throw new RuntimeException(e);
         }
 

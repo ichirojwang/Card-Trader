@@ -9,8 +9,6 @@ public class Tokimon {
     private String pictureUrl;
     private int hp;
 
-    public Tokimon() {}
-
     public Tokimon(String name, String type, int rarity, String pictureUrl, int hp) {
         this.name = name;
         this.type = type;

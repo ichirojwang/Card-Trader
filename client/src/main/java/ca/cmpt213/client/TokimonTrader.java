@@ -18,7 +18,7 @@ public class TokimonTrader extends Application {
 
         Label title = new Label("Tokimon Trading Card Game");
         title.setFont(new Font("Arial", 20));
-        title.setPadding(new Insets(15));
+        title.setPadding(new Insets(15, 0, 0, 0));
 
         TokimonTraderLogic logic = new TokimonTraderLogic();
 
@@ -26,7 +26,6 @@ public class TokimonTrader extends Application {
 
         VBox vbox = new VBox(20, title, tokiGrid);
         vbox.setAlignment(Pos.TOP_CENTER);
-        vbox.setSpacing(50);
 
         ScrollPane scrollPane = new ScrollPane(vbox);
         scrollPane.setFitToWidth(true);
